@@ -39,7 +39,17 @@ system.geometry_convert_from=path/to/coarse/dir/ckpts/last.ckpt
 python launch.py --config configs/consistency-texture.yaml --train --gpu 0 \
 system.prompt_processor.prompt="a delicious hamburger" \
 system.geometry_convert_from=path/to/refine/dir/ckpts/last.ckpt
+
+# Mesh Exploration
+# this uses default mesh-exporter configurations which exports obj+mtl
+python launch.py --config configs/consistency-texture.yaml --export --gpu 0 resume=path/to/refine/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter
+# specify system.exporter.fmt=obj to get obj with vertex colors
+# you may also add system.exporter.save_uv=false to accelerate the process, suitable for a quick peek of the result
+python launch.py --config configs/consistency-texture.yaml --export --gpu 0 resume=path/to/refine/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter system.exporter.fmt=obj
+
 ```
+
+
 
 ## Tips for Improving Quality
 Here are some tips that may help you improve the generation quality:
