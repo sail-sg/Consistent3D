@@ -43,14 +43,14 @@ system.geometry_convert_from=path/to/refine/dir/ckpts/last.ckpt
 
 ```
 
-## (Optional) Mesh Exploration
-Given the generated results, we further support mesh exploration.
+## Export Mesh
+Given the generated results, we can further export the corresponding mesh.
 ```.bash
 # this uses default mesh-exporter configurations which exports obj+mtl
-python launch.py --config path/to/texture/dir/configs/parsed.yaml --export --gpu 0 resume=path/to/refine/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter
+python launch.py --config path/to/texture/dir/configs/parsed.yaml --export --gpu 0 resume=path/to/texture/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter
 # specify system.exporter.fmt=obj to get obj with vertex colors
 # you may also add system.exporter.save_uv=false to accelerate the process, suitable for a quick peek of the result
-python launch.py --config path/to/texture/dir/configs/parsed.yaml --export --gpu 0 resume=path/to/refine/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter system.exporter.fmt=obj
+python launch.py --config path/to/texture/dir/configs/parsed.yaml --export --gpu 0 resume=path/to/texture/dir/ckpts/last.ckpt system.exporter_type=mesh-exporter system.exporter.fmt=obj
 
 ```
 
